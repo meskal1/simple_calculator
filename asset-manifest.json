@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/simple_calculator/static/css/main.9fb7d51a.css",
-    "main.js": "/simple_calculator/static/js/main.be2325a1.js",
+    "main.css": "/simple_calculator/static/css/main.ffa98049.css",
+    "main.js": "/simple_calculator/static/js/main.c6bef7cc.js",
     "index.html": "/simple_calculator/index.html",
     "static/media/itemsAreaIcon.svg": "/simple_calculator/static/media/itemsAreaIcon.d906dd6b6a74dc37e1cfaccb494888b0.svg",
     "static/media/eyeActive.svg": "/simple_calculator/static/media/eyeActive.a9fa3fd6489c4fef0be5.svg",
@@ -9,10 +9,10 @@
     "static/media/separator.svg": "/simple_calculator/static/media/separator.65fcfe8e680a7e18500b.svg",
     "static/media/selectorActive.svg": "/simple_calculator/static/media/selectorActive.7881ef312301561840ad.svg",
     "static/media/selectorInactive.svg": "/simple_calculator/static/media/selectorInactive.bed79fded319254f459a.svg",
-    "main.9fb7d51a.css.map": "/simple_calculator/static/css/main.9fb7d51a.css.map"
+    "main.ffa98049.css.map": "/simple_calculator/static/css/main.ffa98049.css.map"
   },
   "entrypoints": [
-    "static/css/main.9fb7d51a.css",
-    "static/js/main.be2325a1.js"
+    "static/css/main.ffa98049.css",
+    "static/js/main.c6bef7cc.js"
   ]
 }
