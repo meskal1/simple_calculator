@@ -2,6 +2,7 @@
   "name": "simple_calculator",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://meskal1.github.io/simple_calculator",
   "dependencies": {
     "@craco/craco": "^7.0.0",
     "@reduxjs/toolkit": "^1.9.3",
@@ -30,8 +31,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "build": "craco build",
+    "test": "craco test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
