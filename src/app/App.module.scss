@@ -1,0 +1,35 @@
+.app {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+
+  font-family: Inter, sans-serif;
+}
+
+.container {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+
+  width: 100%;
+  max-width: 695px;
+  padding: 38px 80px 86px 76px;
+
+  &::before {
+    content: 'Если Вы смотрите тестовое, значит мне пришло в телегу сообщение об этом. Я поздно заметил, что на 8-м слайде когда тащишь елемент, то он не прозрачный, как по дефолту. Сейчас работаю над этим.';
+
+    position: absolute;
+    top: -50px;
+    left: 0;
+
+    line-height: 18px;
+  }
+}
+
+.content {
+  display: flex;
+  column-gap: 56px;
+}

@@ -1,0 +1,45 @@
+@import '../../../../styles/mixins/mixins';
+
+.numbers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  height: 216px;
+
+  border-radius: 6px;
+
+  &::before {
+    content: 'kdv';
+
+    position: absolute;
+    z-index: -1;
+
+    overflow: hidden;
+
+    width: 0;
+    height: 0;
+  }
+
+  & > p {
+    @include user_select_none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 72px;
+    height: 48px;
+
+    border: 1px solid #e2e3e5;
+    border-radius: 6px;
+
+    &:nth-child(10) {
+      width: 152px;
+    }
+
+    &:active {
+      border: 2px solid #5d5fef;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+@import '../../../../styles/mixins/mixins';
+
+.equal {
+  @include user_select_none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 64px;
+
+  color: white;
+
+  background: #5c65ea;
+  border-radius: 6px;
+
+  &::before {
+    content: 'plg';
+
+    position: absolute;
+    z-index: -1;
+
+    overflow: hidden;
+
+    width: 0;
+    height: 0;
+  }
+
+  &:active {
+    background: #444ee3;
+  }
+}

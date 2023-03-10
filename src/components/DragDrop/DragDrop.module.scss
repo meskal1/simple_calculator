@@ -1,0 +1,65 @@
+.elementContainer {
+  position: relative;
+
+  width: 240px;
+  padding: 4px;
+
+  font-weight: 500;
+
+  border-radius: 6px;
+  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -10px, rgb(0 0 0 / 14%) 0px 2px 2px 0px,
+    rgb(0 0 0 / 12%) 0px 1px 5px 0px;
+}
+
+.constructorArea {
+  &::after,
+  &::before {
+    content: '';
+
+    position: absolute;
+    left: -2px;
+
+    width: 244px;
+    height: 101%;
+  }
+
+  &::before {
+    top: -5px;
+  }
+
+  &::after {
+    bottom: -4px;
+  }
+
+  &:active {
+    cursor: move;
+  }
+}
+
+.disable {
+  pointer-events: none;
+  opacity: 0.5;
+  box-shadow: unset;
+}
+
+.topSeparator {
+  position: absolute;
+  top: -7px;
+  left: -2px;
+
+  width: 244px;
+  height: 6px;
+
+  background: url('../../assets/icons/separator.svg') no-repeat;
+}
+
+.bottomSeparator {
+  position: absolute;
+  bottom: -7px;
+  left: -2px;
+
+  width: 244px;
+  height: 6px;
+
+  background: url('../../assets/icons/separator.svg') no-repeat;
+}

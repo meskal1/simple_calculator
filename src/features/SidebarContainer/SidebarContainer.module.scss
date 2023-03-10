@@ -1,0 +1,10 @@
+.sideBar {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+}
+
+.runtimeMode {
+  pointer-events: none;
+  opacity: 0;
+}

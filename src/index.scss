@@ -1,0 +1,92 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+img {
+  vertical-align: top;
+}
+
+html,
+body {
+  height: 100%;
+
+  font-family: Inter, Roboto, sans-serif;
+  line-height: 1;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* When you tap, it removes the background rectangles */
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-size: 14px;
+  color: black;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+#root {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+// Preload images
+body::after {
+  content: url('./assets/icons/eyeActive.svg') url('./assets/icons/eyeInactive.svg')
+    url('./assets/icons/itemsAreaIcon.svg') url('./assets/icons/selectorActive.svg')
+    url('./assets/icons/selectorInactive.svg') url('./assets/icons/separator.svg');
+
+  position: absolute;
+  z-index: -1;
+
+  overflow: hidden;
+
+  width: 0;
+  height: 0;
+}
+
+body::before {
+  content: 'kdv';
+
+  position: absolute;
+  z-index: -1;
+
+  overflow: hidden;
+
+  width: 0;
+  height: 0;
+}

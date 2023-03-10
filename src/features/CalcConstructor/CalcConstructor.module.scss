@@ -1,0 +1,53 @@
+.constuctorContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  align-items: center;
+
+  width: 243px;
+  height: 448px;
+
+  .noShadow {
+    box-shadow: unset;
+  }
+}
+
+.previewDropDownArea {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  row-gap: 12px;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+
+  border: 2px dashed #c4c4c4;
+  border-radius: 6px;
+
+  img {
+    pointer-events: none;
+  }
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 4px;
+  align-items: center;
+
+  line-height: 17px;
+  text-align: center;
+}
+
+.boldText {
+  font-weight: 500;
+  color: #5d5fef;
+}
+
+.text {
+  max-width: 106px;
+  font-size: 12px;
+  line-height: 14.5px;
+  color: #6b7280;
+}
