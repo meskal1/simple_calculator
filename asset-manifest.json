@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/simple_calculator/static/css/main.9fb7d51a.css",
-    "main.js": "/simple_calculator/static/js/main.c6bfc036.js",
-    "static/media/itemsAreaIcon.svg": "/simple_calculator/static/media/itemsAreaIcon.d906dd6b6a74dc37e1cfaccb494888b0.svg",
+    "main.js": "/simple_calculator/static/js/main.eddcac10.js",
     "index.html": "/simple_calculator/index.html",
+    "static/media/itemsAreaIcon.svg": "/simple_calculator/static/media/itemsAreaIcon.d906dd6b6a74dc37e1cfaccb494888b0.svg",
     "static/media/eyeActive.svg": "/simple_calculator/static/media/eyeActive.a9fa3fd6489c4fef0be5.svg",
     "static/media/eyeInactive.svg": "/simple_calculator/static/media/eyeInactive.d388da426fe904ec8d18.svg",
     "static/media/separator.svg": "/simple_calculator/static/media/separator.65fcfe8e680a7e18500b.svg",
     "static/media/selectorActive.svg": "/simple_calculator/static/media/selectorActive.7881ef312301561840ad.svg",
     "static/media/selectorInactive.svg": "/simple_calculator/static/media/selectorInactive.bed79fded319254f459a.svg",
     "main.9fb7d51a.css.map": "/simple_calculator/static/css/main.9fb7d51a.css.map",
-    "main.c6bfc036.js.map": "/simple_calculator/static/js/main.c6bfc036.js.map"
+    "main.eddcac10.js.map": "/simple_calculator/static/js/main.eddcac10.js.map"
   },
   "entrypoints": [
     "static/css/main.9fb7d51a.css",
-    "static/js/main.c6bfc036.js"
+    "static/js/main.eddcac10.js"
   ]
 }
