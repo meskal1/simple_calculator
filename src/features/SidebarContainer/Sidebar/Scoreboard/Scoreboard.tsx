@@ -1,8 +1,8 @@
 import { FC } from 'react'
 
-import { DragDrop } from '../../../../components/DragDrop/DragDrop'
+import { DragDrop } from '../../../../common/components/DragDrop/DragDrop'
+import { SidebarElementType } from '../../../../common/types/types'
 import { useAppSelector } from '../../../../hooks/useAppSelector'
-import { SidebarElementType } from '../../../../types/types'
 
 import s from './Scoreboard.module.scss'
 
@@ -32,6 +32,8 @@ export const Scoreboard: FC<SidebarElementType> = ({
         return s.size11
       case 10:
         return s.size10
+      default:
+        return result.length > 17 ? s.size17 : ''
     }
   }
 
@@ -42,7 +44,9 @@ export const Scoreboard: FC<SidebarElementType> = ({
       hideElement={arrayIDs?.length ? !arrayIDs?.includes(id) : false}
       forConstructor={forConstructor}
     >
-      <div className={`${s.scoreboard} ${scoreboardStyle()}`}>{result.replace('.', ',')}</div>
+      <div className={`${s.scoreboard} ${scoreboardStyle()}`}>
+        <div className={result.length > 17 ? s.numbers : ''}>{result.replace('.', ',')}</div>
+      </div>
     </DragDrop>
   )
 }
