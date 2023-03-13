@@ -3,19 +3,25 @@ export const convertValue = (
   typedValue: string,
   calcNumbersArray: string[]
 ) => {
-  const ifValuesAreSame = calcNumbersArray[0] === calcNumbersArray[2] ? '.' : ''
-  const convertedValue =
-    typedValue === ',' && currentValue.indexOf('.') !== -1
-      ? ifValuesAreSame
-      : typedValue.replace(',', '.')
+  const value = typedValue.replace(',', '.')
+  const arrayLength = calcNumbersArray.length
+  const isIncludeComma = value === '.' && currentValue.includes('.')
 
-  return convertedValue
+  if (arrayLength === 1 && isIncludeComma) return ''
+
+  if (arrayLength === 3 && isIncludeComma && calcNumbersArray[0] !== calcNumbersArray[2]) return ''
+
+  return value
 }
 
-export const replaceZero = (currentValue: string, typedValue: string) => {
-  return currentValue === '0' && typedValue !== '.' ? '' : currentValue
+export const replaceZero = (currentValue: string, convertedValue: string) => {
+  return currentValue === '0' && convertedValue !== '.' ? '' : currentValue
+}
+
+export const addZero1 = (currentValue: string, convertedValue: string) => {
+  return convertedValue === '.' && currentValue !== '0' ? '0.' : convertedValue
 }
 
 export const emptyAfterDot = (currentValue: string) => {
-  return currentValue.at(-1) === '.' ? currentValue.slice(0, -1) : currentValue
+  return currentValue?.at(-1) === '.' ? currentValue.slice(0, -1) : currentValue
 }
