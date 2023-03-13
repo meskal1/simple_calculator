@@ -11,6 +11,8 @@ export const convertValue = (
 
   if (arrayLength === 3 && isIncludeComma && calcNumbersArray[0] !== calcNumbersArray[2]) return ''
 
+  if (arrayLength === 4 && currentValue === '0' && typedValue === '0') return ''
+
   return value
 }
 
