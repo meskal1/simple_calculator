@@ -1,6 +1,6 @@
-import { setIsInRuntime, setResetCalcValues } from '../../app/appSlice'
-import { useAppDispatch } from '../../hooks/useAppDispatch'
-import { useAppSelector } from '../../hooks/useAppSelector'
+import { setIsInRuntime, setResetCalcValues } from '../../../app/appSlice'
+import { useAppDispatch } from '../../../hooks/useAppDispatch'
+import { useAppSelector } from '../../../hooks/useAppSelector'
 
 import s from './Header.module.scss'
 

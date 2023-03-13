@@ -6,9 +6,9 @@
 
   font-weight: 500;
 
+  background: white;
   border-radius: 6px;
-  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -10px, rgb(0 0 0 / 14%) 0px 2px 2px 0px,
-    rgb(0 0 0 / 12%) 0px 1px 5px 0px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 6%), 0 4px 6px rgb(0 0 0 / 10%);
 }
 
 .constructorArea {
@@ -50,7 +50,7 @@
   width: 244px;
   height: 6px;
 
-  background: url('../../assets/icons/separator.svg') no-repeat;
+  background: url('../../../assets/icons/separator.svg') no-repeat;
 }
 
 .bottomSeparator {
@@ -61,5 +61,16 @@
   width: 244px;
   height: 6px;
 
-  background: url('../../assets/icons/separator.svg') no-repeat;
+  background: url('../../../assets/icons/separator.svg') no-repeat;
+}
+
+.semiTransparent {
+  opacity: 0.5;
+}
+
+.displayCursor {
+  &:hover {
+    cursor: move;
+    cursor: url('../../../assets/icons/notAllowed.svg'), auto;
+  }
 }
