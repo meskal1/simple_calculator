@@ -1,4 +1,4 @@
-@import '../../../../styles/mixins/mixins';
+@import '../../../../common/styles/mixins/mixins';
 
 .numbers {
   display: flex;
@@ -38,7 +38,13 @@
       width: 152px;
     }
 
+    &:hover {
+      border: 2px solid #5d5fef;
+    }
+
     &:active {
+      color: white;
+      background: #5d5fef;
       border: 2px solid #5d5fef;
     }
   }
