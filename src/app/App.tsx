@@ -1,4 +1,4 @@
-import { Header } from '../components/Header/Header'
+import { Header } from '../common/components/Header/Header'
 import { CalcConstructor } from '../features/CalcConstructor/CalcConstructor'
 import { SidebarContainer } from '../features/SidebarContainer/SidebarContainer'
 
