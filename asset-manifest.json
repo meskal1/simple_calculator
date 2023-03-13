@@ -1,7 +1,8 @@
 {
   "files": {
-    "main.css": "/simple_calculator/static/css/main.dcbe0b4e.css",
-    "main.js": "/simple_calculator/static/js/main.2c705b67.js",
+    "main.css": "/simple_calculator/static/css/main.5d2e18af.css",
+    "main.js": "/simple_calculator/static/js/main.e6cb2f89.js",
+    "static/media/notAllowed.svg": "/simple_calculator/static/media/notAllowed.c0b9ba2ddb3a2261c77a.svg",
     "index.html": "/simple_calculator/index.html",
     "static/media/itemsAreaIcon.svg": "/simple_calculator/static/media/itemsAreaIcon.d906dd6b6a74dc37e1cfaccb494888b0.svg",
     "static/media/eyeActive.svg": "/simple_calculator/static/media/eyeActive.a9fa3fd6489c4fef0be5.svg",
@@ -9,10 +10,10 @@
     "static/media/separator.svg": "/simple_calculator/static/media/separator.65fcfe8e680a7e18500b.svg",
     "static/media/selectorActive.svg": "/simple_calculator/static/media/selectorActive.7881ef312301561840ad.svg",
     "static/media/selectorInactive.svg": "/simple_calculator/static/media/selectorInactive.bed79fded319254f459a.svg",
-    "main.dcbe0b4e.css.map": "/simple_calculator/static/css/main.dcbe0b4e.css.map"
+    "main.5d2e18af.css.map": "/simple_calculator/static/css/main.5d2e18af.css.map"
   },
   "entrypoints": [
-    "static/css/main.dcbe0b4e.css",
-    "static/js/main.2c705b67.js"
+    "static/css/main.5d2e18af.css",
+    "static/js/main.e6cb2f89.js"
   ]
 }
