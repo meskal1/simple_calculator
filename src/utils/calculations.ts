@@ -34,18 +34,19 @@ export const calculations = (calcNumbers: string[]) => {
   const roundResult = () => {
     const stringResult = result + ''
     const roundedResult = parseFloat(result.toPrecision(DISPLAY.MAX - 2)) + ''
+    const eNotationResult = result.toExponential()
 
     if (stringResult.length > DISPLAY.MAX && !stringResult.includes('.')) {
-      if (+result.toExponential() > DISPLAY.MAX) {
-        const secondPartOfResult = result.toExponential().split('.')[1] || stringResult
-        const withENotation =
-          secondPartOfResult.split('e')[1] || result.toExponential().split('e')[1]
-        const roundNumber = DISPLAY.MAX - 3 - withENotation.length
+      if (eNotationResult.length > DISPLAY.MAX) {
+        const secondPartOfResult = eNotationResult.split('.')[1] || stringResult
+        const withENotation = secondPartOfResult.split('e')[1] || eNotationResult.split('e')[1]
+        const roundNumber =
+          DISPLAY.MAX - withENotation.length - eNotationResult.split('.')[0].length - 2
 
         return result.toExponential(roundNumber)
       }
 
-      return result.toExponential()
+      return eNotationResult
     }
 
     if (stringResult.includes('e')) {
@@ -70,3 +71,4 @@ export const calculations = (calcNumbers: string[]) => {
 // 277777777.75 / 6
 // 0.7-0.4
 //0.89874236036201 - 77777 = -77776.10125763963
+//88888833333222222 - 88888833333222222
