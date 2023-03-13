@@ -2,8 +2,8 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 export const initCalcValues = {
   result: '0',
-  calcNumbers: [''] as string[],
-  operation: '' as OperationType,
+  calcNumbers: [] as string[],
+  newFirstNumber: '',
 }
 
 const initialState = {
@@ -47,16 +47,20 @@ const appSlice = createSlice({
       state.isDraging = action.payload
     },
     setResult(state, action: PayloadAction<string>) {
+      if (state.calcValues.calcNumbers.length === 4) {
+        state.calcValues.newFirstNumber = action.payload
+      }
+
       state.calcValues.result = action.payload
-    },
-    setOperation(state, action: PayloadAction<OperationType>) {
-      state.calcValues.operation = action.payload
     },
     setCalculations(state, action: PayloadAction<string[]>) {
       state.calcValues.calcNumbers = action.payload
     },
     setResetCalcValues(state) {
       state.calcValues = initCalcValues
+    },
+    setResetNewFirstNumber(state) {
+      state.calcValues.newFirstNumber = ''
     },
   },
 })
@@ -72,9 +76,9 @@ export const {
   setIsConstructorArea,
   setIsDraging,
   setResult,
-  setOperation,
   setResetCalcValues,
   setCalculations,
+  setResetNewFirstNumber,
 } = appSlice.actions
 
 // TYPES

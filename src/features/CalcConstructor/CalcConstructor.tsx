@@ -1,6 +1,11 @@
 import { FC, DragEvent } from 'react'
 
-import { setConstructorElements, setIsConstructorArea, setIsDraging } from '../../app/appSlice'
+import {
+  setConstructorElements,
+  setDragElementId,
+  setIsConstructorArea,
+  setIsDraging,
+} from '../../app/appSlice'
 import itemsAreaIcon from '../../assets/icons/itemsAreaIcon.svg'
 import { useAppDispatch } from '../../hooks/useAppDispatch'
 import { useAppSelector } from '../../hooks/useAppSelector'
@@ -57,6 +62,7 @@ export const CalcConstructor: FC<CalcConstructorType> = ({}) => {
 
     dispatch(setIsConstructorArea(false))
     dispatch(setIsDraging(false))
+    dispatch(setDragElementId(''))
   }
 
   return (

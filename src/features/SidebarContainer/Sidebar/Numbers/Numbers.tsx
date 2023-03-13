@@ -1,12 +1,12 @@
-import { FC, MouseEvent, useState } from 'react'
+import { FC, MouseEvent } from 'react'
 
-import { setCalculations, setResetCalcValues, setResult } from '../../../../app/appSlice'
-import { DragDrop } from '../../../../components/DragDrop/DragDrop'
-import { PATH } from '../../../../constants/maxDisplayNumer.enum'
+import { setCalculations, setResult } from '../../../../app/appSlice'
+import { DragDrop } from '../../../../common/components/DragDrop/DragDrop'
+import { SidebarElementType } from '../../../../common/types/types'
+import { DISPLAY } from '../../../../constants/maxDisplayNumer.enum'
 import { useAppDispatch } from '../../../../hooks/useAppDispatch'
 import { useAppSelector } from '../../../../hooks/useAppSelector'
-import { useEffectAfterMount } from '../../../../hooks/useEffectAfterMount'
-import { SidebarElementType } from '../../../../types/types'
+import { convertValue, replaceZero } from '../../../../utils/calcUtils'
 
 import s from './Numbers.module.scss'
 
@@ -19,63 +19,75 @@ export const Numbers: FC<SidebarElementType> = ({
   forConstructor = false,
 }) => {
   const dispatch = useAppDispatch()
-  const isInRuntime = useAppSelector(store => store.app.isInRuntime)
-  const operation = useAppSelector(store => store.app.calcValues.operation)
+  const result = useAppSelector(store => store.app.calcValues.result)
   const calcNumbers = useAppSelector(store => store.app.calcValues.calcNumbers)
-  const [currentValue, setCurrentValue] = useState('')
+  const newFirstNumber = useAppSelector(store => store.app.calcValues.newFirstNumber)
+  const operation = calcNumbers[1]
+  const equal = calcNumbers[3]
 
   const handleClick = (e: MouseEvent<HTMLParagraphElement>) => {
+    const calcArray = [...calcNumbers]
     const value = e.currentTarget.innerText
+    const convertedValue = convertValue(result, value, calcNumbers)
+    const addZero = convertedValue === '.' ? '0.' : convertedValue
 
-    if (calcNumbers[0] === 'Не определено' || calcNumbers.length === 2) {
-      setCurrentValue('')
-      dispatch(setResetCalcValues())
-    }
+    if (result.length < DISPLAY.MAX) {
+      if (result === 'Не определено' || (result === '0' && !calcNumbers.length)) {
+        dispatch(setCalculations([addZero]))
+        dispatch(setResult(addZero))
 
-    if (currentValue === '0' && value === '0') return
+        return
+      }
 
-    if (currentValue.length < PATH.MAX) {
-      setCurrentValue(prevValue => {
-        const convertedValue =
-          value === ',' && prevValue.split('').includes('.') ? '' : value.replace(',', '.')
+      if (equal) {
+        if (newFirstNumber !== '') {
+          calcArray[0] =
+            newFirstNumber.includes('.') && convertedValue === '.'
+              ? newFirstNumber
+              : newFirstNumber + convertedValue
+        } else {
+          calcArray[0] = convertedValue === '.' ? '0.' : newFirstNumber + convertedValue
+        }
 
-        return prevValue + (prevValue === '' && convertedValue === '.' ? '0.' : convertedValue)
-      })
-    }
-  }
+        dispatch(setResult(calcArray[0]))
+        dispatch(setCalculations(calcArray))
 
-  useEffectAfterMount(() => {
-    if (!isInRuntime && currentValue !== '') {
-      setCurrentValue('')
-    }
-  }, [isInRuntime])
+        return
+      }
 
-  useEffectAfterMount(() => {
-    if (operation && currentValue !== '') {
-      setCurrentValue('')
-    }
-  }, [operation])
-
-  //   console.log('calcNumbers', calcNumbers) //TODO
-
-  useEffectAfterMount(() => {
-    if (currentValue !== '') {
-      dispatch(setResult(currentValue))
-    }
-
-    if (currentValue !== '') {
       if (!operation) {
-        dispatch(setCalculations([currentValue]))
+        dispatch(setCalculations([replaceZero(result, convertedValue) + convertedValue]))
+        dispatch(setResult(replaceZero(result, convertedValue) + convertedValue))
+      } else {
+        calcArray[2] =
+          calcArray[0] === calcArray[2]
+            ? addZero
+            : replaceZero(calcArray[2], convertedValue) + convertedValue
+
+        dispatch(setResult(calcArray[2]))
+        dispatch(setCalculations(calcArray))
+      }
+    } else if (result.length === DISPLAY.MAX) {
+      if (equal && newFirstNumber === '') {
+        calcArray[0] = convertedValue === '.' ? '0.' : newFirstNumber + convertedValue
+
+        dispatch(setResult(calcArray[0]))
+        dispatch(setCalculations(calcArray))
+
+        return
       }
 
       if (operation) {
-        const calcArray = [...calcNumbers]
+        calcArray[2] =
+          calcArray[0] === calcArray[2]
+            ? addZero
+            : replaceZero(calcArray[2], convertedValue) + convertedValue
 
-        calcArray[1] = currentValue
+        dispatch(setResult(calcArray[2]))
         dispatch(setCalculations(calcArray))
       }
     }
-  }, [currentValue])
+  }
 
   return (
     <DragDrop
