@@ -77,7 +77,7 @@ export const Numbers: FC<SidebarElementType> = ({
         return
       }
 
-      if (operation) {
+      if (operation && !equal && calcArray[0] === calcArray[2]) {
         calcArray[2] =
           calcArray[0] === calcArray[2]
             ? addZero
