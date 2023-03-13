@@ -1,3 +1,3 @@
-export enum PATH {
+export enum DISPLAY {
   MAX = 17,
 }
