@@ -17,10 +17,9 @@ type CalcConstructorType = {}
 
 export const CalcConstructor: FC<CalcConstructorType> = ({}) => {
   const dispatch = useAppDispatch()
-  const elementsIDs = useAppSelector(store => store.app.elementsIDs)
-  const dragElementId = useAppSelector(store => store.app.dragElementId)
-  const dragOverElementId = useAppSelector(store => store.app.dragOverElementId)
-  const isConstructorArea = useAppSelector(store => store.app.isConstructorArea)
+  const { elementsIDs, dragElementId, dragOverElementId, isConstructorArea } = useAppSelector(
+    store => store.app
+  )
   const wrapperStyle = elementsIDs.length ? s.constuctorContainer : s.previewDropDownArea
 
   const handleDragLeave = (e: DragEvent<HTMLDivElement>) => {
