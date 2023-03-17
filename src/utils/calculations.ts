@@ -5,8 +5,8 @@ import { emptyAfterDot } from './calcUtils'
 import { decimalAdjust } from './decimalAdjust'
 
 export const calculations = (calcNumbers: string[]) => {
-  const numberOne = +emptyAfterDot(calcNumbers[0])
-  const numberTwo = +emptyAfterDot(calcNumbers[2])
+  const numberOne = Number(emptyAfterDot(calcNumbers[0]))
+  const numberTwo = Number(emptyAfterDot(calcNumbers[2]))
   const operation = calcNumbers[1] as OperationType
   let result = 0
 
@@ -32,8 +32,8 @@ export const calculations = (calcNumbers: string[]) => {
   }
 
   const roundResult = () => {
-    const stringResult = result + ''
-    const roundedResult = parseFloat(result.toPrecision(DISPLAY.MAX - 2)) + ''
+    const stringResult = result.toString()
+    const roundedResult = parseFloat(result.toPrecision(DISPLAY.MAX - 2)).toString()
     const eNotationResult = result.toExponential()
 
     if (stringResult.length > DISPLAY.MAX && !stringResult.includes('.')) {
@@ -60,7 +60,7 @@ export const calculations = (calcNumbers: string[]) => {
     if (roundedResult.length > DISPLAY.MAX) {
       const difference = DISPLAY.MAX - 1 - roundedResult.split('.')[0].length
 
-      return decimalAdjust(+roundedResult, -difference) + ''
+      return decimalAdjust(Number(roundedResult), -difference).toString()
     }
 
     return roundedResult
